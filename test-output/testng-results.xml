@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="59" started-at="2018-09-30T11:44:18Z" finished-at="2018-09-30T11:44:18Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="59" started-at="2018-09-30T11:44:18Z" finished-at="2018-09-30T11:44:18Z">
+      <class name="com.xap.base.Base">
+        <test-method status="PASS" signature="test()[pri:0, instance:com.xap.base.Base@224edc67]" name="test" duration-ms="16" started-at="2018-09-30T11:44:18Z" finished-at="2018-09-30T11:44:18Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- test -->
+      </class> <!-- com.xap.base.Base -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
