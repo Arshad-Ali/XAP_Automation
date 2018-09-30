@@ -20,5 +20,9 @@ public class ReadPropertyFile {
 		}
 		return prop;
 	}
+	public static String getpropdata(String propertyName)
+	{
+		return prop.getProperty(propertyName);
+	}
 
 }

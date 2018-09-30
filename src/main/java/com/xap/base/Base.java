@@ -5,18 +5,17 @@ import java.util.Properties;
 import org.testng.annotations.Test;
 
 import com.xap.assertion.Constants;
-import com.xap.assertion.ReadPropertyFile;
+import static com.xap.assertion.ReadPropertyFile.*;
 
 public class Base {
-Properties prop=ReadPropertyFile.readProperty(Constants.config);
-public void getpropdata()
-{
-	String data=prop.getProperty("password");
-	System.out.println(data);
-}
+Properties prop=readProperty(Constants.objectrepo);
+Properties prop1=readProperty(Constants.config);
+
 @Test
 public void test()
 {
-	getpropdata();
+	String st1=getpropdata("username");
+	String st2=getpropdata("Login");
+	System.out.println("String 1: "+st1+" String 2: "+st2);
 }
 }
