@@ -9,11 +9,12 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.Test;
 
 import com.xap.assertion.Constants;
+import com.xap.assertion.Factory;
 import com.xap.assertion.ObjectIdentification;
 
 import static com.xap.assertion.ReadPropertyFile.*;
 
-public class Base {
+public class Base{
 Properties prop=readProperty(Constants.objectrepo);
 Properties prop1=readProperty(Constants.config);
 
