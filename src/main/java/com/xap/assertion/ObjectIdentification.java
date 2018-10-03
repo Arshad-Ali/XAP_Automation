@@ -1,10 +1,13 @@
 package com.xap.assertion;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
-public class ObjectIdentification {
+import com.xap.base.Base;
 
-	public static By by(String object)
+public class ObjectIdentification extends Base {
+	
+	private By by(String object)
 	{
 		String str[]=object.split(">");
 		String locator=str[0].toUpperCase();
@@ -29,5 +32,10 @@ public class ObjectIdentification {
 		return By.tagName(str[1]);		
 			}
 	return null;
+	}
+	public WebElement getelement(String element)
+	{
+	WebElement ele=getdriver().findElement(by(element));
+	return ele;
 	}
 }
