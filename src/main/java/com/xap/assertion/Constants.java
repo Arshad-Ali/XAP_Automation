@@ -8,4 +8,6 @@ public interface Constants {
 	String propertyparent=System.getProperty("user.dir")+"//resource";
 	String config=propertyparent+"//config//"+"Config.properties";
 	String objectrepo=propertyparent+"//Repository//"+"ObjectRepo.properties";
+	String driver=System.getProperty("user.dir")+"//drivers";
+	String chromedriver=driver+"//chromedriver.exe";
 }

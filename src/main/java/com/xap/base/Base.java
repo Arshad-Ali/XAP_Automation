@@ -11,14 +11,16 @@ import org.testng.annotations.Test;
 
 import com.xap.assertion.Constants;
 import com.xap.assertion.Factory;
-import com.xap.assertion.ObjectIdentification;
+import com.xap.assertion.FindElement;
 
 import static com.xap.assertion.ReadPropertyFile.*;
 
 public class Base{
 Properties prop=readProperty(Constants.objectrepo);
 Properties prop1=readProperty(Constants.config);
+public FindElement find=null;
 public WebDriver driver=null;
+
 public WebDriver getdriver()
 {
 	return driver;
@@ -26,20 +28,10 @@ public WebDriver getdriver()
 @BeforeClass
 public void beforeclass()
 {
-	System.setProperty("webdriver.chrome.driver", "C:\\Users\\aali2\\git\\XAP_Automation\\drivers\\chromedriver.exe");
+	System.setProperty("webdriver.chrome.driver",Constants.chromedriver);
 	driver=new ChromeDriver();
 	driver.get("https://intranet.xavient.com/XAP/");
-}
-@Test
-public void test()
-{
-	ObjectIdentification ob=new ObjectIdentification();
-	String st1=getpropdata("username");
-	System.out.println(st1);
-	//driver.findElement(By.xpath("//*[@id='txtLoginName']")).sendKeys("adb");
-	ob.getElement(st1)).sendKeys("adb");
-	/*String st1=getpropdata("username");
-	String st2=getpropdata("Login");
-	System.out.println("String 1: "+st1+" String 2: "+st2);*/
+	find=new FindElement(driver);
+	
 }
 }

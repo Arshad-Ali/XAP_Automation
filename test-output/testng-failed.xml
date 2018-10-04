@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
-  <test name="Default test(failed)">
+  <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.xap.base.Base">
+      <class name="com.xap.pom.Login">
         <methods>
+          <include name="beforeclass"/>
           <include name="test"/>
         </methods>
-      </class> <!-- com.xap.base.Base -->
+      </class> <!-- com.xap.pom.Login -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
