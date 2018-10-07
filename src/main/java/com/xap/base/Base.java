@@ -3,16 +3,17 @@ package com.xap.base;
 import java.util.List;
 import java.util.Properties;
 
+import org.apache.log4j.xml.DOMConfigurator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.Test;
+
 
 import com.xap.assertion.Constants;
-import com.xap.assertion.Factory;
+
 
 
 import static com.xap.assertion.ReadPropertyFile.*;
@@ -62,21 +63,24 @@ case "TAGNAME":
 	return null;
 }
 
-public WebElement getelement(String element)
+public WebElement findElement(String element)
 {
 WebElement ele=driver.findElement(by(element));
 return ele;
 }
 
-public List<WebElement> getelements(String element)
+public List<WebElement> findElements(String element)
 {
 List<WebElement> listelement=driver.findElements(by(element));
 return listelement;
 }
 /********************End of Find Elements Methods*************/
+
+
 @BeforeClass
 public void beforeclass()
 {
+	DOMConfigurator.configure(Constants.logxml);
 	System.setProperty("webdriver.chrome.driver",Constants.chromedriver);
 	driver=new ChromeDriver();
 	driver.get("https://intranet.xavient.com/XAP/");

@@ -7,7 +7,7 @@ import java.util.Properties;
 
 public class ReadPropertyFile {
 	static Properties prop;
-	public static Properties readProperty(String filename) {
+	public static Properties readProperty(String filename){
 		/*** Take property file name and Initialize it to read**/
 		File propfile=new File(filename);
 		try {
@@ -17,6 +17,7 @@ public class ReadPropertyFile {
 		} catch (Exception e){
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			
 		}
 		return prop;
 	}
