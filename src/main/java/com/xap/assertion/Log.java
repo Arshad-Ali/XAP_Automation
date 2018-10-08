@@ -11,45 +11,47 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.apache.log4j.FileAppender;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.apache.log4j.PatternLayout;
 import org.apache.log4j.SimpleLayout;
+
 
 
 public class Log {
 	//Initialized log4j
 	private static Logger log;
+	static FileAppender appender;
 	
 	//To print Beginning of the test case.
-	public static void layout(String testcase)
-	{
-		SimpleLayout layout = new SimpleLayout();
+	
+	public static Logger initLogs(String append) {
+		FileAppender appender = new FileAppender();
+		// configure the appender here, with file location, etc
 		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		Date date = new Date();
 		String getdate=dateFormat.format(date); //2016-11-16		
-		String filename="//"+testcase+getdate+".txt";
-		Path path = FileSystems.getDefault().getPath(Constants.logs, filename);
+		String filename="//"+append+getdate;
 		
-	   try {
-	    	if(Files.notExists(path, new LinkOption[]{LinkOption.NOFOLLOW_LINKS}))
-	    	{
-	    		path = Paths.get(Constants.logs+filename);
-	    	}
-			FileAppender appender = new FileAppender(layout,Constants.logs+filename,true);
-			System.setProperty("my.log", Constants.logs);
-			
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		appender.setFile(Constants.logs+ filename + ".log");
+		appender.setLayout(new PatternLayout("%d %-5p [%c{1}] %m %n"));
+		appender.setAppend(true);
+		appender.setBufferSize(100);
+		appender.activateOptions();
 		
+		Logger APPLICATION_LOG = Logger.getLogger(append);
+		APPLICATION_LOG.setLevel(Level.DEBUG);
+		APPLICATION_LOG.addAppender(appender);
+		
+		
+		return APPLICATION_LOG;
 	}
 	public static void starttestcase(String Testccasename) 
 	{
-	layout(Testccasename);
-	log=Logger.getLogger(Testccasename);
-	
-	log.info("/**********  Starting the test case **********/");
-	log.info("--$$$$$$$$$  "+Testccasename+ "  $$$$$$$$$--");
+	//layout(Testccasename);
+		log=initLogs(Testccasename);
+		log.info("/**********  Starting the test case **********/");
+		log.info("--$$$$$$$$$  "+Testccasename+ "  $$$$$$$$$--");
 	
 	}
 

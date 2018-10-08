@@ -80,7 +80,6 @@ return listelement;
 @BeforeClass
 public void beforeclass()
 {
-	DOMConfigurator.configure(Constants.logxml);
 	System.setProperty("webdriver.chrome.driver",Constants.chromedriver);
 	driver=new ChromeDriver();
 	driver.get("https://intranet.xavient.com/XAP/");
