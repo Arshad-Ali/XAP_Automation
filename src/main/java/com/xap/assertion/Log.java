@@ -10,6 +10,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.FileAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -38,12 +39,10 @@ public class Log {
 		appender.setAppend(true);
 		appender.setBufferSize(100);
 		appender.activateOptions();
-		
 		Logger APPLICATION_LOG = Logger.getLogger(append);
+		System.out.println(appender);
 		APPLICATION_LOG.setLevel(Level.DEBUG);
 		APPLICATION_LOG.addAppender(appender);
-		
-		
 		return APPLICATION_LOG;
 	}
 	public static void starttestcase(String Testccasename) 
